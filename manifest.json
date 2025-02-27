@@ -1,0 +1,16 @@
+{
+	"manifest_version": 3,
+	"name": "Scribe",
+	"version": "0.1",
+
+	"icons": {
+		"48": "./images/star.png"
+	},
+
+	"content_scripts": [
+		{
+			"js": ["./dist/content.js"],
+			"matches": ["<all_urls>"]
+		}
+	]
+}
