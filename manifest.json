@@ -9,7 +9,8 @@
 
 	"content_scripts": [
 		{
-			"js": ["./dist/content.js"],
+			"js": ["./dist/js/content.js"],
+			"css": ["./css/style.css"],
 			"matches": ["<all_urls>"]
 		}
 	]

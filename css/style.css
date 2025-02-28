@@ -1,0 +1,25 @@
+.ray-panel {
+	position: absolute;
+	display: flex; /* Ensures buttons align properly */
+	align-items: center; /* Centers them vertically */
+	justify-content: center; /* Centers them horizontally */
+	background-color: #424549;
+	border: 1px solid #1e2124;
+	border-radius: 6px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	width: auto; /* Only as wide as its content */
+	height: auto; /* Only as tall as its content */
+}
+
+.panel-btn {
+	font-size: 17px;
+	color: white;
+	background-color: rgb(30, 33, 36);
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: background 0.2s ease-in-out;
+}
+
+.panel-btn:hover {
+	background-color: #121416;
+}
