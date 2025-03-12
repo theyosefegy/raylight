@@ -1,4 +1,3 @@
-
 export class Panel {
 	buttons: Button[];
 	visible: boolean;
@@ -27,9 +26,17 @@ export class Panel {
 		this.container.style.display = "flex";
 	}
 
-	add(button: Button) {
-		this.buttons.push(button);
-		this.container.appendChild(button.element);
+	add(...buttons: Button[]) {
+		if (buttons.length === 1) {
+			this.buttons.push(buttons[0]);
+			this.container.appendChild(buttons[0].element);
+			return;
+		}
+
+		for (let btn of buttons) {
+			this.buttons.push(btn);
+			this.container.appendChild(btn.element);
+		}
 	}
 
 	remove(button: Button) {
@@ -40,12 +47,12 @@ export class Panel {
 
 export class Button {
 	title: string;
-	onClick: () => void;
+	callback: Function;
 	element: HTMLButtonElement;
 
-	constructor(title: string, callback: () => void) {
+	constructor(title: string, callback: Function) {
 		this.title = title;
-		this.onClick = callback;
+		this.callback = callback;
 		this.element = this.createElement();
 	}
 
@@ -53,7 +60,9 @@ export class Button {
 		const btn = document.createElement("button");
 		btn.classList.add("panel-btn");
 		btn.innerHTML = this.title;
-		btn.addEventListener("click", this.onClick);
+		btn.addEventListener("click", () => {
+			this.callback();
+		});
 		return btn;
 	}
 }

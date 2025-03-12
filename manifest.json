@@ -1,6 +1,6 @@
 {
 	"manifest_version": 3,
-	"name": "Scribe",
+	"name": "RayLight",
 	"version": "0.1",
 
 	"icons": {
@@ -9,9 +9,18 @@
 
 	"content_scripts": [
 		{
-			"js": ["./dist/js/content.js"],
-			"css": ["./css/style.css"],
+			"js": ["/dist/bundle.js"],
+			"css": ["/css/style.css"],
 			"matches": ["<all_urls>"]
 		}
-	]
+	],
+
+	"commands": {
+		"reload": {
+			"description": "reload extension",
+			"suggested_key": {
+				"default": "Ctrl+Shift+H"
+			}
+		}
+	}
 }
