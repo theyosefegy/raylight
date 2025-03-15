@@ -9,11 +9,16 @@
 
 	"content_scripts": [
 		{
-			"js": ["/dist/bundle.js"],
+			"js": ["./dist/index.js"],
 			"css": ["/css/style.css"],
 			"matches": ["<all_urls>"]
 		}
 	],
+
+	"background": {
+		"service_worker": "dist/background.js",
+		"type": "module"
+	},
 
 	"commands": {
 		"reload": {

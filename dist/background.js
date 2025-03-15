@@ -1,0 +1,1 @@
+(()=>{"use strict";chrome.commands.onCommand.addListener((()=>{chrome.runtime.reload()}))})();

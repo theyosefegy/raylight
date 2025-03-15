@@ -1,10 +1,13 @@
 const path = require("path");
 
 module.exports = {
-	entry: path.resolve("src", "index.ts"),
+	entry: {
+		index: path.resolve("src", "index.ts"),
+		background: path.resolve("src", "background.ts"),
+	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
-		filename: "bundle.js",
+		filename: "[name].js",
 	},
 	module: {
 		rules: [
@@ -19,4 +22,5 @@ module.exports = {
 		extensions: [".ts", ".js"],
 	},
 	mode: "production",
+	watch: true, // Enables watch mode
 };

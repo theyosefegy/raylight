@@ -1,11 +1,7 @@
 export class Panel {
-	buttons: Button[];
-	visible: boolean;
 	container: HTMLDivElement;
 
 	constructor() {
-		this.buttons = [];
-		this.visible = false;
 		this.container = this.createContainer();
 		document.body.appendChild(this.container);
 	}
@@ -13,6 +9,7 @@ export class Panel {
 	private createContainer(): HTMLDivElement {
 		const container = document.createElement("div");
 		container.classList.add("ray-panel");
+
 		return container;
 	}
 
@@ -27,20 +24,12 @@ export class Panel {
 	}
 
 	add(...buttons: Button[]) {
-		if (buttons.length === 1) {
-			this.buttons.push(buttons[0]);
-			this.container.appendChild(buttons[0].element);
-			return;
-		}
-
-		for (let btn of buttons) {
-			this.buttons.push(btn);
-			this.container.appendChild(btn.element);
-		}
+		const fragment = document.createDocumentFragment();
+		buttons.forEach((btn) => fragment.appendChild(btn.element));
+		this.container.appendChild(fragment);
 	}
 
 	remove(button: Button) {
-		this.buttons = this.buttons.filter((b) => b !== button);
 		this.container.removeChild(button.element);
 	}
 }
@@ -60,9 +49,7 @@ export class Button {
 		const btn = document.createElement("button");
 		btn.classList.add("panel-btn");
 		btn.innerHTML = this.title;
-		btn.addEventListener("click", () => {
-			this.callback();
-		});
+		btn.addEventListener("click", () => this.callback());
 		return btn;
 	}
 }
