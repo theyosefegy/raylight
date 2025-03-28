@@ -10,7 +10,7 @@
 	"content_scripts": [
 		{
 			"js": ["./dist/index.js"],
-			"css": ["/css/style.css"],
+			"css": ["./css/style.css"],
 			"matches": ["<all_urls>"]
 		}
 	],

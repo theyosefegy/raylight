@@ -1,41 +1,55 @@
-.ray-panel {
+:root {
+	--panel-bgc: #212121;
+	--btn-color: #ffffff;
+	--btn-hover-color: #030303;
+}
+
+.raypanel {
 	position: absolute;
 	display: flex;
 	align-items: center;
-	font-family: "Font Awesome 6 Free";
+	font-family: monospace;
 	justify-content: center;
-	background-color: #1e1f22;
+	background-color: var(--panel-bgc);
 	border-radius: 10px;
 	gap: 1px 3px;
-	padding: 3px 5px;
+	padding: 4px 7px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-	width: auto;
-	height: auto;
 	border: 1px solid rgba(128, 128, 128, 0.107);
 }
 
-.panel-btn {
-	font-size: 14px;
-	font-family: "Font Awesome 6 Free";
-	color: #ffffff;
+.raypanel::before {
+	content: "";
+	width: 6px;
+	height: 6px;
+	background-color: var(--panel-bgc);
+	position: absolute;
+	left: 7px;
+	bottom: -2px;
+	transform: rotate(45deg);
+}
+
+.panelbtn {
+	font-size: 17px;
+	font-family: monospace;
+	color: var(--btn-color);
 	line-height: 1;
 	cursor: pointer;
 	border-radius: 6px;
-	background-color: transparent;
-	padding: 3px 4px;
+	border: none;
+	background-color: transparent !important;
+	padding: 5px 6px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: 0.3s;
+	z-index: 2;
 }
 
-.panel-btn svg {
-	fill: white;
+.panelbtn:hover {
+	background-color: var(--btn-hover-color);
 }
 
-.panel-btn:hover {
-	background-color: #2b2d31;
-}
-
-.panel-btn:active {
+.panelbtn:active {
 	background-color: #3a3d41;
 }
